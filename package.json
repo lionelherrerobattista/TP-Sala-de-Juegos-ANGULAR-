@@ -4,19 +4,26 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path angularapp --aot --prod"
   },
   "private": true,
+  "engines": {
+    "node": "v10.16.3",
+    "npm": "6.9.0"
+  },
   "dependencies": {
     "@agm/core": "^1.0.0-beta.1",
     "@angular/animations": "^9.1.1",
     "@angular/cdk": "^9.2.0",
+    "@angular/cli": "^9.1.1",
     "@angular/common": "^9.1.1",
     "@angular/compiler": "^9.1.1",
+    "@angular/compiler-cli": "^9.1.1",
     "@angular/core": "^9.1.1",
     "@angular/forms": "^9.1.1",
     "@angular/material": "^9.2.0",
@@ -25,7 +32,9 @@
     "@angular/router": "^9.1.1",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "ngx-bootstrap": "^5.6.1",
+    "path": "^0.12.7",
     "rxjs": "^6.5.5",
     "rxjs-compat": "^6.0.0-rc.0",
     "tslib": "^1.10.0",
