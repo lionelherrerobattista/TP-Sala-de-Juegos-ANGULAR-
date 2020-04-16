@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
+  isCollapsed = false;
+
+  mostrarNavbar() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
+
   constructor() { }
 
   ngOnInit() {
