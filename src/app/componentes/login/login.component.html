@@ -1,27 +1,39 @@
-<!--div style="margin: 20% auto; width: 30%;">
-  <div class="row">
-    <div class="col-lg-6">
-      Usuario
+<div class="container">
+  <div class="container-imagen">
+    <img src="./assets/imagenes/login2.png" class="avatar">
+  </div>
+  <form class="formulario-login">
+    <mat-form-field>
+      <mat-label>Usuario</mat-label>
+      <input matInput placeholder="Usuario" [(ngModel)]="usuario"  name="uname" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Clave</mat-label>
+      <input matInput type="password" placeholder="Clave" [(ngModel)]="clave"  name="psw" required>
+    </mat-form-field>
+
+    <mat-checkbox>Recordar mis datos</mat-checkbox>
+
+    <div class="botones-formulario">
+      <button mat-raised-button>Ingresar</button>
     </div>
-    <div class="col-lg-6">
-      <input type="text"  [(ngModel)]="usuario">
+  </form>
+
+  <div class="container-opciones">
+    <div class="texto-opciones">
+      <p>¿No está registrado?</p>
+    </div>
+    <div class="botones-opciones">
+      <button mat-raised-button routerLink="/Principal">Cancelar</button>
+      <button mat-raised-button routerLink="/Registro">Registrarse</button>
     </div>
   </div>
-  <div class="row" style="margin-top: 5px">
-    <div class="col-lg-6">
-      Clave
-    </div>
-    <div class="col-lg-6">
-      <input type="password" [(ngModel)]="clave">
-    </div>
-  </div>
-  <div class="row" style="text-align: center; margin-top: 10px">
-    <div class="col-lg-12">
-      <button (click)="Entrar()" class="btn btn-info btn-lg" >Entrar</button>
-    </div>
-  </div>
-</div-->
- <div class="container" >
+
+</div>
+
+
+ <!-- <div class="container" >
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
       <div class="imgcontainer">
@@ -54,4 +66,4 @@
 
     </form>
   </div>
-</div>
+</div> -->

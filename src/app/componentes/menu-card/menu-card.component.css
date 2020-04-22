@@ -1,57 +1,75 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px; /* 5px rounded corners */
-    max-width: 300px;
-   height: 100%;
-    margin: 10px;
-    padding-bottom: 10px;
-    float: left;
-  background-color: #DEF3A6;
-    text-align: center;
+
+p {
+  font-size: 5vw;
+  text-align: center;
 }
 
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-    border-radius: 5px 5px 0 0;
-    width: 200px;
-    height: 200px;
-}/* Add some padding inside the card container */
+mat-card-title {
+  font-size: 6vw;
+  text-align: center;
+}
+
+mat-card {
+  margin-bottom: 2vh;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
-    padding: 2px 16px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 5vh 5vw 5vh 5vw;
+}
+
+@media only screen and (min-width: 768px) {
+
+  p {
+    font-size: 1.2vw;
+    text-align: center;
+  }
+
+  mat-card {
+    height: 67vh;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  mat-card-title {
+    font-size: 1.5vw;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 2%;
+  }
+
+  .card-menu {
+    width: 20vw;
+    margin: auto;
+  }
+
+  .img-card {
+    max-width: 400px;
+    height: auto;
+
+  }
+
+
 }
 
 
-.button{
-    margin-left: 1px;
-    display: inline-block;
-    width: 90%;
-    padding: 5px 15px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-
-    border: none;
-    outline: 0;
- 
-    padding: 8px;
-    color: white;
-   /* background-color: #000;*/
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .button:hover {background-color: #3e8e41}
-  
-  .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
