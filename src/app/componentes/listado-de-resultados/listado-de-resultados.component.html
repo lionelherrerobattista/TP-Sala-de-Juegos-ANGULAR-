@@ -5,7 +5,48 @@
 
 </div-->
 
-<table class="table table-condensed">
+<mat-toolbar color='primary'>
+  <a routerLink='/Principal'>Sala de Juegos</a>
+  <button class="menu-principal" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink='/Principal'>Principal</button>
+    <button mat-menu-item>Juego 1</button>
+    <button mat-menu-item>Juego 2</button>
+    <button mat-menu-item>Juego 3</button>
+  </mat-menu>
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Juego Column -->
+  <ng-container matColumnDef="juego">
+    <th mat-header-cell *matHeaderCellDef> Juego. </th>
+    <td mat-cell *matCellDef="let element"> {{element.juego}} </td>
+  </ng-container>
+
+  <!-- Jugador Column -->
+  <ng-container matColumnDef="jugador">
+    <th mat-header-cell *matHeaderCellDef> Jugador </th>
+    <td mat-cell *matCellDef="let element"> {{element.jugador}} </td>
+  </ng-container>
+
+  <!-- Resultado Column -->
+  <ng-container matColumnDef="resultado">
+    <th mat-header-cell *matHeaderCellDef> Resultado </th>
+    <td mat-cell *matCellDef="let element"> {{element.resultado}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+
+<!-- <table class="table table-condensed">
     <thead>
       <tr>
         <th>Juego</th>
@@ -16,10 +57,10 @@
     <tbody>
       <tr *ngFor="let juego of listado">
         <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td> 
-        <td *ngIf="juego.gano">Gano </td>   
-        <td *ngIf="!juego.gano">Perdio</td>     
+        <td>{{juego.jugador}} </td>
+        <td *ngIf="juego.gano">Gano </td>
+        <td *ngIf="!juego.gano">Perdio</td>
       </tr>
-     
+
     </tbody>
-  </table>
+  </table> -->

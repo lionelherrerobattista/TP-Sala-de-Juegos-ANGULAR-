@@ -1,12 +1,55 @@
+<mat-toolbar color='primary'>
+  <a routerLink='/Principal'>Sala de Juegos</a>
+  <button class="menu-principal" mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Todos los jugadores</button>
+    <button mat-menu-item>Los ganadores</button>
+    <button mat-menu-item>Los perdedores</button>
+  </mat-menu>
+</mat-toolbar>
+<!--
 <ul class="nav nav-pills nav-justified">
   <li class="active"><a routerLink="/Principal">Ir a inicio</a></li>
   <li><a (click)="TraerTodos()">Todos los jugadores</a></li>
   <li><a (click)="TraerGanadores()">Los ganadores</a></li>
   <li><a (click)="TraerPerdedores()">Los perdedores</a></li>
-</ul>
+</ul> -->
 
 
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Juego Column -->
+  <ng-container matColumnDef="usuario">
+    <th mat-header-cell *matHeaderCellDef> Usuario </th>
+    <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+  </ng-container>
+
+  <!-- Jugador Column -->
+  <ng-container matColumnDef="cuit">
+    <th mat-header-cell *matHeaderCellDef> Cuit </th>
+    <td mat-cell *matCellDef="let element"> {{element.cuit}} </td>
+  </ng-container>
+
+  <!-- Sexo Column -->
+  <ng-container matColumnDef="sexo">
+    <th mat-header-cell *matHeaderCellDef> Sexo </th>
+    <td mat-cell *matCellDef="let element"> {{element.sexo}} </td>
+  </ng-container>
+
+  <!-- Gano Column -->
+  <ng-container matColumnDef="gano">
+    <th mat-header-cell *matHeaderCellDef> Ganó </th>
+    <td mat-cell *matCellDef="let element"> {{element.gano}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!--
 <table class="table table-condensed">
   <thead>
     <tr>
@@ -19,11 +62,11 @@
   <tbody>
     <tr *ngFor="let jugador of listado" >
       <td>{{jugador.usuario}} </td>
-      <td>{{jugador.cuit}} </td> 
-      <td>{{jugador.sexo | sexo| uppercase}} </td> 
-      <td>{{jugador.gano}} </td> 
-      
+      <td>{{jugador.cuit}} </td>
+      <td>{{jugador.sexo | sexo| uppercase}} </td>
+      <td>{{jugador.gano}} </td>
+
     </tr>
-   
+
   </tbody>
-</table>
+</table> -->

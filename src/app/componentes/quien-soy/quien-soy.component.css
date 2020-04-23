@@ -1,43 +1,104 @@
-.imagenDeQuienSoy{
-    width: 100%;
-   
-    }
-body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
+a {
+  text-decoration: none;
 }
-p {font-size: 16px;}
-.margin {margin-bottom: 45px;}
-.bg-1 { 
-    background-color: #1abc9c; /* Green */
-    color: #ffffff;
+/* unvisited link */
+a:link {
+  color: white;
 }
-.bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
+
+/* visited link */
+a:visited {
+  color: white;
 }
-.bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+
+
+.div-descripcion {
+  display:flex;
+  flex-direction: row;
 }
-.bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+
+.div-foto {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30%;
+  max-height: 100%;
+  padding: 2vh 2vw 2vh 2vw;
+
 }
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+
+.foto-alumno {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 2vh;
+  border-radius: 250px;
 }
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
+
+.div-texto-aprendizaje {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 70%;
+  max-height: 100%;
+  padding: 10vh 5vw 2vh 5vw;
 }
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
+
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+}
+
+#btn-pdf {
+  margin-top: 2vh;
+}
+
+.div-donde {
+  display: flex;
+  flex-direction: column;
+  background-color: #3f51b5;
+  padding-top: 1.2vh;
+  /* height: 100%; */
+}
+
+h3 {
+  font-size: 5vw;
+}
+
+.div-donde p, .div-donde h3 {
+  color:white;
+  height: 100%;
+}
+
+#divs-donde-detalle {
+  display: flex;
+  flex-direction: row;
+}
+
+.div-detalle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 33%;
+  height: 100%;
+  padding: 2vh 2vw 2vh 2vw;
+}
+
+.img-div-donde {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  h3 {
+    font-size: 1.8vw;
+  }
+
 }

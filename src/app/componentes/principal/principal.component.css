@@ -10,7 +10,15 @@ mat-card-title {
 }
 
 mat-card {
+  height: 100%;
   margin-bottom: 2vh;
+}
+
+
+.tarjeta-pie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 mat-card-actions {

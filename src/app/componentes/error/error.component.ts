@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
+  isCollapsed = false;
+
   constructor() { }
 
   ngOnInit() {
-   
+
+  }
+
+
+  mostrarNavbar() {
+    this.isCollapsed = !this.isCollapsed;
   }
 
 }

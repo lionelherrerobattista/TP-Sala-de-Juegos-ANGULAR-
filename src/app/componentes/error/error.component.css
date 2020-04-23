@@ -1,0 +1,18 @@
+.panel
+{
+    height: 200px;
+    background-image: url("/TP_LAV4_2017/assets/imagenes/cabecera.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#box-cabecera {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+#box-info a {
+  margin-right: 0.5vw;
+}
