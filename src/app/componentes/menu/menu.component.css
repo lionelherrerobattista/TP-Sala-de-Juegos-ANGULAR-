@@ -2,6 +2,20 @@ mat-toolbar {
   margin-bottom: 2vh;
 }
 
+a {
+  text-decoration: none;
+}
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+
 .menu-principal {
   margin-left: 2vw;
 }
