@@ -11,13 +11,23 @@ export class AnagramaComponent implements OnInit {
   anagrama:string;
   palabra:string;
   respuestaUsuario:string;
+  resultado:string;
+  empezoJuego:boolean;
+  terminoJuego:boolean;
 
-  constructor() { }
+  constructor() {
+    this.terminoJuego = false;
+   }
 
   ngOnInit() {
   }
 
   generarAnagrama() {
+
+
+    this.empezoJuego = true;
+
+    this.NuevoJuego();
 
     //busca una palabra al azar:
     let indiceRandom  = Math.floor( Math.random() * (this.listaPalabras.length - 0) + 0);
@@ -49,10 +59,21 @@ export class AnagramaComponent implements OnInit {
 
     if(this.respuestaUsuario === this.palabra)
     {
+      this.terminoJuego = true;
+      this.resultado = "Ganó";
       console.log("Ganó");
     } else {
+      this.terminoJuego = true;
+      this.resultado = "Respuesta incorrecta";
       console.log("Respuesta incorrecta");
     }
   }
 
+  NuevoJuego() {
+
+    this.terminoJuego = false;
+    this.resultado = '';
+    this.respuestaUsuario= '';
+
+  }
 }

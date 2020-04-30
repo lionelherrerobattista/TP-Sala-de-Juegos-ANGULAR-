@@ -1,0 +1,29 @@
+#titulo {
+  font-size:4vw;
+  text-align: center;
+  margin: 2vh 0 2vh 0;
+}
+
+
+#resultado {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3vh;
+}
+
+.tateti {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-tateti {
+  width: 20vw;
+  height: 20vh;
+  font-size: 15vh;
+  font-weight: 300;
+  background-color: white;
+}
+
+

@@ -18,6 +18,7 @@ import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.comp
 export class AgilidadAritmeticaComponent implements OnInit {
 
   //Se presenta una cuenta y se debe averiguar el resultado
+  terminoJuego:boolean;
 
   //variables del juego
   primerNumero:number;
@@ -83,7 +84,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   //Detener el intervalo cuando se toca el botón verificar
   verificar()
   {
-    this.ocultarVerificar=false;
+    this.ocultarVerificar=true;
 
     console.log(this.respuesta);
 
@@ -93,6 +94,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       //Mostrar menú jugar de nuevo
       this.nuevoJuego.gano = true;
       this.AbrirModalResultado();
+      this.terminoJuego = true;
 
 
     } else {
@@ -101,6 +103,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.nuevoJuego.gano = false;
       //Mostrar menú jugar de nuevo
       this.AbrirModalResultado();
+      this.terminoJuego = true;
 
     }
 

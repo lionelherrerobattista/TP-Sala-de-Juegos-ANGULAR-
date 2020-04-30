@@ -1,0 +1,30 @@
+<div>
+  <h1 id='titulo'>Ta Te Ti</h1>
+</div>
+
+
+
+<div class='tateti'>
+  <div id='resultado'>
+    <h1 *ngIf="!terminoJuego; else elseBlock">Pulsá el casillero para dibujar un O</h1>
+    <ng-template #elseBlock><h1>Resultado: {{resultado}}</h1></ng-template>
+    <button mat-raised-button	(click)='NuevoJuego()'>Nuevo juego</button>
+  </div>
+  <div class='filas'>
+    <button class='btn-tateti' (click)="CambiarSimbolo(0)">{{estadoCasilleros[0]}}</button>
+    <button class='btn-tateti' (click)="CambiarSimbolo(1)">{{estadoCasilleros[1]}}</button>
+    <button class='btn-tateti' (click)="CambiarSimbolo(2)">{{estadoCasilleros[2]}}</button>
+  </div>
+  <div class='filas'>
+    <button class='btn-tateti' (click)="CambiarSimbolo(3)">{{estadoCasilleros[3]}}</button>
+    <button class='btn-tateti' (click)="CambiarSimbolo(4)">{{estadoCasilleros[4]}}</button>
+    <button class='btn-tateti' (click)="CambiarSimbolo(5)">{{estadoCasilleros[5]}}</button>
+  </div>
+  <div class='filas'>
+    <button class='btn-tateti' (click)="CambiarSimbolo(6)">{{estadoCasilleros[6]}}</button>
+    <button class='btn-tateti' (click)="CambiarSimbolo(7)">{{estadoCasilleros[7]}}</button>
+    <button class='btn-tateti' (click)="CambiarSimbolo(8)">{{estadoCasilleros[8]}}</button>
+  </div>
+</div>
+
+

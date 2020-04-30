@@ -1,18 +1,32 @@
 
 <div class="contenedor">
-  <form class="anagrama">
+
+  <!-- <form class="anagrama"> -->
+
 
     <h1>Anagrama: {{anagrama}}</h1>
 
-    <mat-form-field >
-      <mat-label>Respuesta</mat-label>
-      <input matInput [(ngModel)]='respuestaUsuario' placeholder="Tu respuesta" name="respuestaUsuario">
-    </mat-form-field>
+    <div *ngIf="terminoJuego" id='resultado'>
+      <h1>Resultado: {{resultado}}</h1>
+    </div>
+
+    <div id="inputs">
+      <mat-form-field >
+        <mat-label>Respuesta</mat-label>
+        <input matInput [(ngModel)]='respuestaUsuario' placeholder="Tu respuesta" name="respuestaUsuario">
+      </mat-form-field>
+    </div>
+
     <div class="botones">
-      <button mat-raised-button color="accent" (click)="generarAnagrama()">generar</button>
+      <button mat-raised-button color="accent" (click)="generarAnagrama()">Generar</button>
       <button mat-raised-button color="accent" (click)="comprobarRespuesta()">Listo</button>
     </div>
 
-  </form>
+  <!-- </form> -->
+
+  <div *ngIf="!empezoJuego" id='instrucciones'>
+    <h1>Pulse el boton generar para comenzar a jugar</h1>
+  </div>
+
 </div>
 

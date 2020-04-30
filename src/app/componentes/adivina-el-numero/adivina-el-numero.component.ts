@@ -95,7 +95,7 @@ export class AdivinaElNumeroComponent implements OnInit {
       }
 
       //Carga el mensaje:
-      this.Mensajes= "#" + this.contador + "-" + mensaje  + " ayuda :" + this.nuevoJuego.RetornarAyuda();
+      this.Mensajes= "#" + this.contador + "-" + mensaje  + " ayuda: " + this.nuevoJuego.RetornarAyuda();
 
   }
 

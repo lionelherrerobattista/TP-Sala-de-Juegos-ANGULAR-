@@ -55,6 +55,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ResultadoJuegoComponent } from './componentes/resultado-juego/resultado-juego.component';
 import { PptComponent } from './componentes/ppt/ppt.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { PptComponent } from './componentes/ppt/ppt.component';
     InputJugadoresComponent,
     SexoPipe,
     ResultadoJuegoComponent,
-    PptComponent
+    PptComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,

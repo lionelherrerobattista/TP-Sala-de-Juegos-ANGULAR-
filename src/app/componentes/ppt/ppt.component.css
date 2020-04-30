@@ -42,6 +42,12 @@
   margin-bottom: 3vh;
 }
 
+
+#instrucciones h1{
+  text-align: center;
+}
+
+/* Imagenes clases */
 .btn-piedra {
   background-image: url('assets/imagenes/piedra.png');
 }
@@ -54,6 +60,7 @@
 .btn-tijera {
   background-image: url('assets/imagenes/tijera.png');
 }
+
 
 
 @media only screen and (min-width: 768px) {

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PptComponent implements OnInit {
 
+  terminoJuego:boolean;
   gano:boolean;
   resultado:string;
   opciones:string[] = ['piedra', 'papel', 'tijera']
@@ -18,6 +19,7 @@ export class PptComponent implements OnInit {
   constructor() {
     this.opcionMaquina = "Máquina";
     this.opcionUsuario = "Usuario";
+    this.terminoJuego = false;
   }
 
   ngOnInit(): void {
@@ -84,6 +86,8 @@ export class PptComponent implements OnInit {
           break;
       }
     }
+
+    this.terminoJuego = true;
 
 
   }

@@ -3,10 +3,12 @@
   <button [ngClass]='claseBtnMaquina' id='btn-maquina'>{{opcionMaquina}}</button>
 </div>
 <div id='resultado'>
-  <button mat-raised-button (click)="CompararResultado()">Jugar</button>
   <h1>Resultado: {{resultado}}</h1>
+  <button mat-raised-button (click)="CompararResultado()">Jugar</button>
 </div>
-
+<div *ngIf="!terminoJuego" id='instrucciones'>
+  <h1>Elegí una de las opciones:</h1>
+</div>
 <div id='botones-seleccion'>
   <button class='btn-piedra' (click)="ElegirOpcion('piedra')">Piedra</button>
   <button class='btn-papel' (click)="ElegirOpcion('papel')">Papel</button>
