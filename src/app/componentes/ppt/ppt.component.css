@@ -1,0 +1,86 @@
+
+
+#ring {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+#ring button {
+  width: 40vw;
+  height: 20vh;
+  background-size: 40vw 20vh;
+  border-radius: 20px;
+}
+
+
+#resultado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vh 0 2vh 0;
+}
+
+#resultado button {
+  margin-bottom: 2vh;
+}
+
+#botones-seleccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#botones-seleccion button {
+  border-radius: 20px;
+  height: 25vh;
+  width: 80vw;
+  background-size: 80vw 25vh;
+  margin-bottom: 3vh;
+}
+
+.btn-piedra {
+  background-image: url('assets/imagenes/piedra.png');
+}
+
+.btn-papel {
+  background-image: url('assets/imagenes/papel.png');
+
+}
+
+.btn-tijera {
+  background-image: url('assets/imagenes/tijera.png');
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+
+  #ring button {
+    width: 35vw;
+    height: 25vh;
+    background-size: 35vw 25vh;
+    border-radius: 20px;
+  }
+
+
+  #botones-seleccion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+
+  #botones-seleccion button {
+    border-radius: 20px;
+    height: 20vh;
+    width: 25vw;
+    background-size: 25vw 21vh;
+  }
+
+}
+

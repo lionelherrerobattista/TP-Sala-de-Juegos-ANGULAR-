@@ -1,3 +1,18 @@
-<p>
-  anagrama works!
-</p>
+
+<div class="contenedor">
+  <form class="anagrama">
+
+    <h1>Anagrama: {{anagrama}}</h1>
+
+    <mat-form-field >
+      <mat-label>Respuesta</mat-label>
+      <input matInput [(ngModel)]='respuestaUsuario' placeholder="Tu respuesta" name="respuestaUsuario">
+    </mat-form-field>
+    <div class="botones">
+      <button mat-raised-button color="accent" (click)="generarAnagrama()">generar</button>
+      <button mat-raised-button color="accent" (click)="comprobarRespuesta()">Listo</button>
+    </div>
+
+  </form>
+</div>
+

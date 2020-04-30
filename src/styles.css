@@ -2,9 +2,33 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 * {
   box-sizing: border-box;
+}
+
+p {
+  font-size: 4.5vw;
+  text-align: center;
+}
+
+h3 {
+  font-size: 5vw;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  p {
+    font-size: 1.2vw;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1.8vw;
+  }
+
+
 }

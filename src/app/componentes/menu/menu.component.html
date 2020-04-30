@@ -3,9 +3,10 @@
   <button class="menu-principal" mat-button [matMenuTriggerFor]="menu">Menu</button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item routerLink="/Principal">Principal</button>
-    <button mat-menu-item>Adivina</button>
-    <button mat-menu-item>Agilidad</button>
-    <button mat-menu-item>Adivina + listado</button>
+    <button mat-menu-item (click)="Juego('Adivina')">Adivina</button>
+    <button mat-menu-item (click)="Juego('Agilidad')">Agilidad</button>
+    <button mat-menu-item (click)="Juego('Anagrama')">Anagrama</button>
+    <button mat-menu-item (click)="Juego('Ppt')">Piedra, Papel, Tijera</button>
     <button mat-menu-item>Agilidad + listado</button>
   </mat-menu>
 </mat-toolbar>

@@ -64,9 +64,6 @@ p {
   /* height: 100%; */
 }
 
-h3 {
-  font-size: 5vw;
-}
 
 .div-donde p, .div-donde h3 {
   color:white;
@@ -97,8 +94,5 @@ h3 {
 
 @media only screen and (min-width: 768px) {
 
-  h3 {
-    font-size: 1.8vw;
-  }
 
 }

@@ -1,26 +1,39 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div style="text-align:center">
-  <h1>
-    {{nuevoJuego.nombre}}!
-  </h1>
- </div>
-<h2></h2>
-<form name="juego">
+<div class='contenedor'>
+  <div class='titulo-juego'>
+    <h1>¡{{nuevoJuego.nombre}}!</h1>
+  </div>
 
-   <label>ingrese numero:  </label>  <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-    <h1>{{nuevoJuego.numeroIngresado}}  </h1>
- 
-    <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>
- 
-    <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()"  class="btn btn-info btn-lg">Nuevo número secreto</button></h2>
- 
-    <h2><p *ngIf="nuevoJuego.numeroSecreto!=0" ><i class="fa fa-spinner fa-spin"></i>Esperando que ingrese un número</p></h2>
+  <div class='form'>
+    <form name="adivinaElNumero">
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
+      <mat-form-field>
+        <mat-label>Tu número:</mat-label>
+          <input matInput [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Tu número" name="numeroIngresado" type="text"/>
+      </mat-form-field>
+
+      <div id='numero-ingresado'>
+        <h1>{{nuevoJuego.numeroIngresado}}</h1>
+      </div>
+
+      <div id='botones'>
+        <button mat-raised-button color="primary" [hidden]="ocultarVerificar" *ngIf="nuevoJuego.numeroSecreto != 0" (click)="Verificar()">Verificar</button>
+        <button mat-raised-button color="primary" *ngIf="nuevoJuego.numeroSecreto == 0 " (click)="ComenzarJuego()">Nuevo número secreto</button>
+      </div>
+
+      <!-- <h2><p *ngIf="nuevoJuego.numeroSecreto != 0"><i ></i>Esperando que ingrese un número</p></h2> -->
+    </form>
+
+    <!-- Mensajes -->
+    <div id='mensajes'>
+      <h3>{{Mensajes}}</h3>
+    </div>
+
+    <div id='resultado'>
+      <h3 [hidden]="!nuevoJuego.gano">Usted adivino el número</h3>
+      <h3 [hidden]="nuevoJuego.gano">Usted aún no gano </h3>
+    </div>
+
+  </div>
+</div>
 
 
-</form>
-<div id="snackbar">{{Mensajes}}</div>

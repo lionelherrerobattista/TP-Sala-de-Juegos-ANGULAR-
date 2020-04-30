@@ -16,12 +16,12 @@ export abstract class Juego {
   }
 
 
-  
 
-  public abstract verificar():boolean; 
-  
+
+  public abstract Verificar():boolean;
+
   public retornarAyuda() {
-    
+
     return "NO hay Ayuda definida";
   }
 }

@@ -1,9 +1,4 @@
 
-p {
-  font-size: 4.5vw;
-  text-align: center;
-}
-
 mat-card-title {
   font-size: 6vw;
   text-align: center;
@@ -13,7 +8,6 @@ mat-card {
   height: 100%;
   margin-bottom: 2vh;
 }
-
 
 .tarjeta-pie {
   display: flex;
@@ -37,10 +31,6 @@ mat-card-actions {
 
 @media only screen and (min-width: 768px) {
 
-  p {
-    font-size: 1.2vw;
-    text-align: center;
-  }
 
   mat-card-actions {
     display: flex;

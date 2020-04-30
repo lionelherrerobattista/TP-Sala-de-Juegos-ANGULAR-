@@ -1,25 +1,49 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<!-- index.html -->
+<form>
+  <mat-form-field>
+    <mat-label>Primer número:</mat-label>
+      <input matInput [(ngModel)]="primerNumero" placeholder="ingrese numero" name="primerNumero" type="text" [readonly]=true/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Operador:</mat-label>
+    <input matInput [(ngModel)]="operador" placeholder="ingrese numero" name="operador" type="text" [readonly]=true/>
+  </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Segundo número:</mat-label>
+    <input matInput [(ngModel)]="segundoNumero" placeholder="ingrese numero" name="segundoNumero" type="text" [readonly]=true/>
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Respuesta:</mat-label>
+    <input matInput [(ngModel)]="respuesta" placeholder="ingrese numero" name="respuesta" type="text"/>
+</mat-form-field>
 
 
-<form name="juego">
+    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{tiempo}} </button></h2>
+    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
+
+</form>
+
+
+
+<!-- <form name="juego">
 <ul>
    <li>
    Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
+
   </li>
   <li>
    Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
+
   </li>
   <li>
    Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
+
   </li>
   <li>
     Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
+
    </li>
   <li>
     <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
@@ -35,4 +59,4 @@
   </li>
 </ul>
 
-</form>
+</form> -->

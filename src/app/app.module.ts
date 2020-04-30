@@ -51,7 +51,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ResultadoJuegoComponent } from './componentes/resultado-juego/resultado-juego.component';
+import { PptComponent } from './componentes/ppt/ppt.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,9 @@ import {MatTableModule} from '@angular/material/table';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    ResultadoJuegoComponent,
+    PptComponent
   ],
   imports: [
     BrowserModule,
@@ -95,9 +100,14 @@ import {MatTableModule} from '@angular/material/table';
     MatMenuModule,
     MatToolbarModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatDialogModule,
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
+  ],
+  entryComponents: [
+    ResultadoJuegoComponent,
   ],
   providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
   bootstrap: [AppComponent]
