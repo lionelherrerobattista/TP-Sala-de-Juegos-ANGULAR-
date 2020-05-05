@@ -24,6 +24,7 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
+import { MemoriaComponent } from '../componentes/memoria/memoria.component';
 
 
 // declaro donde quiero que se dirija
@@ -49,6 +50,7 @@ children: [
   {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
   {path: 'Ppt' , component: PptComponent},
   {path: 'Tateti' , component: TatetiComponent},
+  {path: 'Memoria', component: MemoriaComponent},
 ]
 },
 {path: '**' , component: ErrorComponent},

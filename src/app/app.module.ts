@@ -56,6 +56,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ResultadoJuegoComponent } from './componentes/resultado-juego/resultado-juego.component';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { MemoriaComponent } from './componentes/memoria/memoria.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     SexoPipe,
     ResultadoJuegoComponent,
     PptComponent,
-    TatetiComponent
+    TatetiComponent,
+    MemoriaComponent
   ],
   imports: [
     BrowserModule,

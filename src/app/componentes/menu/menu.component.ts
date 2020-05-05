@@ -31,6 +31,9 @@ export class MenuComponent implements OnInit {
       case 'Ppt':
         this.router.navigate(['/Juegos/Ppt']);
       break;
+      case 'Memoria':
+        this.router.navigate(['/Juegos/Memoria']);
+      break;
       case 'Tateti':
         this.router.navigate(['/Juegos/Tateti']);
       break;

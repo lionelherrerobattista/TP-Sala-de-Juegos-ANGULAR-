@@ -1,0 +1,98 @@
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  font-size: 3vw;
+}
+
+#botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+#btn-empezar {
+  height: 4vh;
+  width: 20vw;
+  max-width: 100%;
+}
+
+#cartas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 60vh;
+  padding: 2vh 4vw 0 4vw
+}
+
+.fila {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  height: 15vh;
+  width: 18vw;
+}
+
+/* 6 clases diferentes y clase vacia */
+.tarjeta-vacia {
+  background-image: url('assets/imagenes/carta.png') ;
+  background-size: cover;
+}
+
+.tarjeta-1 {
+  background-image: none;
+}
+
+.tarjeta-2 {
+  background-image: none;
+}
+
+.tarjeta-3 {
+  background-image: none;
+}
+
+.tarjeta-4 {
+  background-image: none;
+}
+
+.tarjeta-5 {
+  background-image: none;
+}
+
+.tarjeta-6 {
+  background-image: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+  h3 {
+    font-size: 1.5vw;
+  }
+  #btn-empezar {
+    height: 4vh;
+    width: 15vw;
+    max-width: 100%;
+  }
+
+  #cartas {
+    height: 80vh;
+    padding: 2vh 10vw 2vh 10vw
+  }
+
+
+
+  button {
+    height: 20vh;
+    width: 8vw;
+  }
+
+
+}

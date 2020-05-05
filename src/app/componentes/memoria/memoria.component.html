@@ -1,0 +1,28 @@
+<h1>Da vuelta las cartas y tratá de encontrar los pares de imágenes</h1>
+
+<div id='botones'>
+  <button id='btn-empezar' (click)='empezarJuego()'><h3>Empezar</h3></button>
+</div>
+
+<div id='cartas'>
+  <div class='fila'>
+    <button [ngClass]='clasesCartas[0]' (click)='mostrarImagen(0)'>1</button>
+    <button [ngClass]='clasesCartas[1]' (click)='mostrarImagen(1)'>2</button>
+    <button [ngClass]='clasesCartas[2]' (click)='mostrarImagen(2)'>3</button>
+    <button [ngClass]='clasesCartas[3]' (click)='mostrarImagen(3)'>4</button>
+  </div>
+
+  <div class='fila'>
+    <button [ngClass]='clasesCartas[4]' (click)='mostrarImagen(4)'>5</button>
+    <button [ngClass]='clasesCartas[5]' (click)='mostrarImagen(5)'>6</button>
+    <button [ngClass]='clasesCartas[6]' (click)='mostrarImagen(6)'>7</button>
+    <button [ngClass]='clasesCartas[7]' (click)='mostrarImagen(7)'>8</button>
+  </div>
+
+  <div class='fila'>
+    <button [ngClass]='clasesCartas[8]' (click)='mostrarImagen(8)'>9</button>
+    <button [ngClass]='clasesCartas[9]' (click)='mostrarImagen(9)'>10</button>
+    <button [ngClass]='clasesCartas[10]' (click)='mostrarImagen(10)'>11</button>
+    <button [ngClass]='clasesCartas[11]' (click)='mostrarImagen(11)'>12</button>
+  </div>
+</div>
