@@ -41,33 +41,39 @@ button {
 }
 
 /* 6 clases diferentes y clase vacia */
-.tarjeta-vacia {
+.carta-vacia {
   background-image: url('assets/imagenes/carta.png') ;
   background-size: cover;
 }
 
-.tarjeta-1 {
-  background-image: none;
+.carta-1 {
+  background-image: url('assets/imagenes/carpincho.png');
+  background-size: cover;
 }
 
-.tarjeta-2 {
-  background-image: none;
+.carta-2 {
+  background-image: url('assets/imagenes/mono.png');
+  background-size: cover;
 }
 
-.tarjeta-3 {
-  background-image: none;
+.carta-3 {
+  background-image: url('assets/imagenes/alpaca.png');
+  background-size: cover;
 }
 
-.tarjeta-4 {
-  background-image: none;
+.carta-4 {
+  background-image: url('assets/imagenes/pinguino.png');
+  background-size: cover;
 }
 
-.tarjeta-5 {
-  background-image: none;
+.carta-5 {
+  background-image: url('assets/imagenes/tucan.png');
+  background-size: cover;
 }
 
-.tarjeta-6 {
-  background-image: none;
+.carta-6 {
+  background-image: url('assets/imagenes/sloth.png');
+  background-size: cover;
 }
 
 

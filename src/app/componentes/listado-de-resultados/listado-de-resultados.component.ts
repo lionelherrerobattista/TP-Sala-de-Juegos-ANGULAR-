@@ -1,17 +1,8 @@
 
 import { Component, OnInit , Input, EventEmitter} from '@angular/core';
+import { DatosJuegoService, Resultado } from '../../servicios/datos-juego.service';
 
-export interface Resultado {
-  juego: number;
-  jugador: string;
-  resultado: boolean;
-}
 
-const ELEMENT_DATA: Resultado[] = [
-  {juego: 1, jugador: 'aaa', resultado: true},
-  {juego: 2, jugador: 'bbb', resultado: true},
-
-];
 
 
 @Component({
@@ -20,21 +11,30 @@ const ELEMENT_DATA: Resultado[] = [
   styleUrls: ['./listado-de-resultados.component.css']
 })
 export class ListadoDeResultadosComponent implements OnInit {
-//  @Input()
- listado: Array<any>;
+
+@Input() resultadoJuego;
+
+listadoResultados: Resultado[];
 
  displayedColumns: string[] = ['juego', 'jugador', 'resultado'];
- dataSource = ELEMENT_DATA;
+//  dataSource = ELEMENT_DATA;
+ dataSource = this.listadoResultados;
 
-  constructor() {
-   }
-
-  ngOnInit() {
+ constructor(private datosJuegoService:DatosJuegoService) {
 
   }
 
-  ver() {
-    console.info(this.listado);
+  ngOnInit() {
+    this.cargarResultados();
+  }
+
+  //Cargo los datos del juego
+  cargarResultados():void {
+    this.datosJuegoService.getListaResultados().subscribe(
+      resultados => {
+        this.listadoResultados = resultados;
+        console.log(this.listadoResultados);
+      });
   }
 
 }

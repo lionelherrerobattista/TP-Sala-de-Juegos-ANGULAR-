@@ -2,6 +2,8 @@ import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.component';
 import { JuegoAdivina } from '../../clases/juego-adivina';
+import { DatosJuegoService, Resultado } from '../../servicios/datos-juego.service';
+
 
 
 @Component({
@@ -12,14 +14,15 @@ import { JuegoAdivina } from '../../clases/juego-adivina';
 
 export class AdivinaElNumeroComponent implements OnInit {
 
-  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
+  @Output() enviarResultado: EventEmitter<any>= new EventEmitter<any>();
 
+  resultadoParaLista:Resultado;
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
 
-  constructor(private matDialog: MatDialog) {
+  constructor(private matDialog: MatDialog, private datosJuegoService:DatosJuegoService) {
     this.nuevoJuego = new JuegoAdivina();
     console.info("Numero secreto:",this.nuevoJuego.numeroSecreto);
     this.ocultarVerificar=false;
@@ -45,7 +48,15 @@ export class AdivinaElNumeroComponent implements OnInit {
     //función recursiva
     if(this.nuevoJuego.Verificar()) {
 
-      this.enviarJuego.emit(this.nuevoJuego); //Mando el evento a la lista(?)
+      this.resultadoParaLista = {
+        juego: 'Adivina el número',
+        jugador:'Juan',
+        resultado: 'Ganó',
+      }
+
+      this.datosJuegoService.cargarResultado(this.resultadoParaLista);
+
+      // this.enviarResultado.emit(this.resultadoParaLista); //Mando el resultado a la lista(?)
 
       this.MostarMensaje("Sos un Genio!!!", true);
 
