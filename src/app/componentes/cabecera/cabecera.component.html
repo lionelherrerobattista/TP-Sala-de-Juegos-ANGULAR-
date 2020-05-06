@@ -1,4 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<mat-toolbar>
+  <span>Sala de Juegos</span>
+  <button mat-button routerLink="/Principal">Home</button>
+  <button mat-button [matMenuTriggerFor]="juegos">Juegos</button>
+  <mat-menu #juegos="matMenu">
+    <button mat-menu-item>Alta</button>
+    <button mat-menu-item>Listado</button>
+  </mat-menu>
+  <button mat-button routerLink="/Registro">Registro</button>
+  <button mat-button routerLink="/Login">Iniciar Sesión</button>
+
+</mat-toolbar>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand">Sala de Juegos</a>
   <button (click)="mostrarNavbar()" class="navbar-toggler" type="button" data-toggle="collapse"
     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -19,7 +32,7 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
 
 <div id="box-cabecera">
   <h1 class="text-center" style="font-size: 50px;">Sala de Juegos</h1>
