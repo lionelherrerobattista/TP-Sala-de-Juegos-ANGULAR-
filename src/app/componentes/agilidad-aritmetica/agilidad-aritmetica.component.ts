@@ -1,5 +1,5 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
@@ -8,6 +8,8 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
 
 import { Router } from '@angular/router';
 import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.component';
+import { AuthService } from '../../servicios/auth.service';
+import { DatosJuegoService, Resultado } from '../../servicios/datos-juego.service';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -16,6 +18,8 @@ import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.comp
 })
 
 export class AgilidadAritmeticaComponent implements OnInit {
+
+  mensajeResultado:string;
 
   //Se presenta una cuenta y se debe averiguar el resultado
   terminoJuego:boolean;
@@ -32,7 +36,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   maximoRandom = 11;
   listaOperadores = [ '+', '-', '*', '/'] ;
 
-  @Output()
+  resultadoParaLista:Resultado;
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
   nuevoJuego : JuegoAgilidad;//clase que guarda los datos del juego
   ocultarVerificar: boolean;
@@ -44,7 +48,11 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private route:Router, public matDialog: MatDialog) {
+  constructor(private route:Router,
+    public matDialog: MatDialog,
+    private authService:AuthService,
+    private datosJuegoService:DatosJuegoService
+  ) {
 
     //Iniciar las variables del juego:
     this.ocultarVerificar=true;
@@ -84,12 +92,27 @@ export class AgilidadAritmeticaComponent implements OnInit {
   //Detener el intervalo cuando se toca el botón verificar
   verificar()
   {
+    let nombreUsuario;
+
     this.ocultarVerificar=true;
 
     console.log(this.respuesta);
 
     //Verificar la cuenta:
     if(this.respuesta == this.resultado ) {
+
+      // enviar los datos a la lista
+      nombreUsuario = this.authService.mostrarNombre();
+
+      this.resultadoParaLista = {
+        juego: 'Agilidad aritmética',
+        jugador: nombreUsuario,
+        resultado: 'Ganó',
+      }
+
+      this.datosJuegoService.cargarResultado(this.resultadoParaLista);
+      this.mensajeResultado = 'Ganaste';
+
 
       //Mostrar menú jugar de nuevo
       this.nuevoJuego.gano = true;
@@ -99,6 +122,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
     } else {
 
+      this.mensajeResultado = 'Perdiste';
       console.log("Perdió");
       this.nuevoJuego.gano = false;
       //Mostrar menú jugar de nuevo
@@ -148,9 +172,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
   AbrirModalResultado() {
 
     //Abrir el modal de material
-    let modalRef = this.matDialog.open(ResultadoJuegoComponent, {
+    this.matDialog.open(ResultadoJuegoComponent, {
       data: {
-        resultado: this.nuevoJuego.gano,
+        resultado: this.mensajeResultado,
       },
 
     });

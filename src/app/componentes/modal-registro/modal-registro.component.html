@@ -1,0 +1,31 @@
+<form id='formulario'>
+  <mat-form-field>
+    <mat-label>Usuario</mat-label>
+    <input matInput placeholder="Usuario" [(ngModel)]="usuario"  name="usuario" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>DNI</mat-label>
+    <input matInput placeholder="DNI" [(ngModel)]="dni"  name="dni" required>
+  </mat-form-field>
+
+  <mat-radio-group aria-label="Seleccione una opcion">
+    <mat-radio-button [(ngModel)]="sexo" value="masculino" name="masculino" ngDefaultControl>Masculino</mat-radio-button>
+    <mat-radio-button [(ngModel)]="sexo" value="femenino" name="femenino" ngDefaultControl>Femenino</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" [(ngModel)]="email"  name="email" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Clave</mat-label>
+    <input matInput type="password" placeholder="Clave" [(ngModel)]="password"  name="password" required>
+  </mat-form-field>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cerrarModal()" routerLink="/Principal">Me arrepentí</button>
+    <button type="button" class="btn btn-primary" (click)="registrarUsuario()" >Registrarme</button>
+  </div>
+</form>

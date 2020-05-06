@@ -57,6 +57,18 @@ import { ResultadoJuegoComponent } from './componentes/resultado-juego/resultado
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemoriaComponent } from './componentes/memoria/memoria.component';
+import {MatRadioModule} from '@angular/material/radio';
+
+//environment
+import { environment } from '../environments/environment';
+
+//Firebase
+import { AngularFireModule } from '@angular/fire';
+
+//Auth
+import { AuthService } from './servicios/auth.service';
+import { DatosJuegoService } from './servicios/datos-juego.service';
+import { ModalRegistroComponent } from './componentes/modal-registro/modal-registro.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +98,8 @@ import { MemoriaComponent } from './componentes/memoria/memoria.component';
     ResultadoJuegoComponent,
     PptComponent,
     TatetiComponent,
-    MemoriaComponent
+    MemoriaComponent,
+    ModalRegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +119,8 @@ import { MemoriaComponent } from './componentes/memoria/memoria.component';
     MatTableModule,
     MatFormFieldModule,
     MatDialogModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatRadioModule,
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
@@ -113,7 +128,14 @@ import { MemoriaComponent } from './componentes/memoria/memoria.component';
   entryComponents: [
     ResultadoJuegoComponent,
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [
+    JuegoServiceService,
+    MiHttpService,
+    PaisesService,
+    ArchivosJugadoresService,
+    JugadoresService,
+    AuthService,
+    DatosJuegoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,10 +13,11 @@
       <input matInput type="password" placeholder="Clave" [(ngModel)]="clave"  name="psw" required>
     </mat-form-field>
 
-    <mat-checkbox>Recordar mis datos</mat-checkbox>
+    <button (click)="completarLogin('admin')">Admin</button>
+    <!-- <mat-checkbox>Recordar mis datos</mat-checkbox> -->
 
     <div class="botones-formulario">
-      <button mat-raised-button>Ingresar</button>
+      <button mat-raised-button (click)="iniciarSesion()">Ingresar</button>
     </div>
   </form>
 

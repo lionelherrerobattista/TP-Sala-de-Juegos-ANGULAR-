@@ -20,7 +20,6 @@ export class ResultadoJuegoComponent implements OnInit {
 
   ReiniciarJuego() {
 
-    this.route.navigate([this.route.url]);
     this.mdDialogRef.close();
   }
 

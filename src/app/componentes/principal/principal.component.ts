@@ -11,11 +11,13 @@ export class PrincipalComponent implements OnInit {
     isFirstOpen: true,
     isFirstDisabled: false
   };
+
   constructor() {  }
 
   ngOnInit() {
+
   }
 
- 
+
 
 }

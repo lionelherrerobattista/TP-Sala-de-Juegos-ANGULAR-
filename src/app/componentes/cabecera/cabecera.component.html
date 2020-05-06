@@ -1,14 +1,34 @@
-<mat-toolbar>
+<mat-toolbar color='primary'>
   <span>Sala de Juegos</span>
-  <button mat-button routerLink="/Principal">Home</button>
-  <button mat-button [matMenuTriggerFor]="juegos">Juegos</button>
-  <mat-menu #juegos="matMenu">
-    <button mat-menu-item>Alta</button>
-    <button mat-menu-item>Listado</button>
-  </mat-menu>
-  <button mat-button routerLink="/Registro">Registro</button>
-  <button mat-button routerLink="/Login">Iniciar Sesión</button>
-
+  <div id='contenedor-cabecera'>
+    <div>
+      <button mat-button routerLink="/Principal">Home</button>
+      <button class="menu-principal" mat-button *ngIf="usuarioLogeado" [matMenuTriggerFor]="menu">Juegos</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/Juegos/Adivina">Adivina</button>
+        <button mat-menu-item routerLink="/Juegos/Agilidad">Agilidad</button>
+        <button mat-menu-item routerLink="/Juegos/Anagrama">Anagrama</button>
+        <button mat-menu-item routerLink="/Juegos/Ppt">Piedra, Papel, Tijera</button>
+        <button mat-menu-item routerLink="/Juegos/Memoria">Memoria</button>
+        <button mat-menu-item routerLink="/Juegos/Tateti">Ta Te Ti</button>
+      </mat-menu>
+      <button class="menu-principal" mat-button *ngIf="usuarioLogeado" [matMenuTriggerFor]="listado">Listados</button>
+      <mat-menu #listado="matMenu">
+        <button mat-menu-item routerLink="/Listado">Lista de resultados</button>
+        <button mat-menu-item routerLink="/Jugadores">Lista de jugadores</button>
+      </mat-menu>
+    </div>
+    <div *ngIf="!usuarioLogeado; else templateSaludo">
+      <button mat-button routerLink="/Registro">Registro</button>
+      <button mat-button routerLink="/Login">Iniciar Sesión</button>
+    </div>
+    <ng-template #templateSaludo>
+      <div id="nombreUsuario">
+        <h3>¡Hola {{nombreUsuario}}!</h3>
+        <button mat-button (click)="cerrarSesion()">Cerrar Sesión</button>
+      </div>
+    </ng-template>
+  </div>
 </mat-toolbar>
 
 <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">

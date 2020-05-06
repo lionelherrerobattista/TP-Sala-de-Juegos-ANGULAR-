@@ -1,7 +1,6 @@
 
 <h2 mat-dialog-title>¿Querés seguir jugando?</h2>
-<mat-dialog-content *ngIf='data.resultado; else elseBlock'>¡Ganaste!</mat-dialog-content>
-<ng-template #elseBlock>Perdiste :(</ng-template>
+<mat-dialog-content>¡{{data.resultado}}!</mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="VolverAlMenu()">Salir</button>
   <button mat-button (click)="ReiniciarJuego()">Juego Nuevo</button>

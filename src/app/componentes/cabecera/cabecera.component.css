@@ -1,3 +1,11 @@
+h3 {
+  font-size: 2vw;
+}
+
+button {
+  font-size: 2.5vw;
+}
+
 .panel
 {
     height: 200px;
@@ -8,6 +16,18 @@
     position: relative;
 }
 
+#contenedor-cabecera{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:100%;
+}
+
+#nombreUsuario {
+  display: flex;
+  flex-direction: row;
+}
+
 #box-cabecera {
   margin-top: 5vh;
   margin-bottom: 5vh;
@@ -15,4 +35,19 @@
 
 #box-info a {
   margin-right: 0.5vw;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+
+  button {
+
+    font-size: 1.2vw;
+  }
+
+
+
+
+
 }

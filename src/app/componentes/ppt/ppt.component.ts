@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { DatosJuegoService } from '../../servicios/datos-juego.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.component';
 
 @Component({
   selector: 'app-ppt',
@@ -16,7 +20,7 @@ export class PptComponent implements OnInit {
   claseBtnUsuario:string;
   claseBtnMaquina:string;
 
-  constructor() {
+  constructor(private authService:AuthService, private datosJuegoService:DatosJuegoService, public matDialog: MatDialog) {
     this.opcionMaquina = "Máquina";
     this.opcionUsuario = "Usuario";
     this.terminoJuego = false;
@@ -89,7 +93,48 @@ export class PptComponent implements OnInit {
 
     this.terminoJuego = true;
 
+    this.enviarResultado();
+
+    this.AbrirModalResultado();
+  }
+
+
+  enviarResultado() {
+
+    var nombreUsuario;
+    var resultadoParaLista;
+    var resultado;
+
+    if(this.resultado='Ganaste') {
+      resultado = 'Ganó';
+    } else if (this.resultado='Perdiste') {
+      resultado = 'Perdió';
+    } else {
+      resultado = 'Empató';
+    }
+
+    // enviar los datos a la lista
+     nombreUsuario = this.authService.mostrarNombre();
+     resultadoParaLista = {
+       juego: 'Piedra, papel o tijera',
+       jugador: nombreUsuario,
+       resultado: resultado,
+     }
+
+     this.datosJuegoService.cargarResultado(resultadoParaLista);
+  }
+
+  AbrirModalResultado() {
+
+    //Abrir el modal de material
+    this.matDialog.open(ResultadoJuegoComponent, {
+      data: {
+        resultado: this.resultado,
+      },
+
+    });
 
   }
+
 
 }

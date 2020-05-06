@@ -1,18 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JugadoresService } from '../../servicios/jugadores.service';
-
-
-export interface Jugador {
-  usuario: string;
-  cuit:string;
-  sexo:string;
-  gano:boolean;
-}
-
-const ELEMENT_DATA: Jugador[] = [
-  {usuario: 'aaa', cuit:'20-11111111-9', sexo:'hombre', gano:true},
-  {usuario: 'bbb', cuit:'20-22222222-9', sexo:'mujer', gano:true},
-];
+import { JugadoresService, Jugador } from '../../servicios/jugadores.service';
 
 @Component({
   selector: 'app-jugadores-listado',
@@ -24,43 +11,21 @@ const ELEMENT_DATA: Jugador[] = [
 export class JugadoresListadoComponent implements OnInit {
 
   displayedColumns: string[] = ['usuario', 'cuit', 'sexo', 'gano'];
-  dataSource = ELEMENT_DATA;
+  listaJugadores:Jugador[];
 
-  listado:any
-  miJugadoresServicio:JugadoresService
+  constructor(private serviceJugadores:JugadoresService) {
 
-    constructor(serviceJugadores:JugadoresService) {
-      this.miJugadoresServicio = serviceJugadores;
-
-    }
-
-
+  }
 
   ngOnInit() {
+    this.cargarLista();
   }
 
+  cargarLista() {
 
-  TraerTodos(){
-    //alert("totos");
-    this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
+    this.listaJugadores = this.serviceJugadores.traerJugadores();
+    console.log(this.listaJugadores);
 
-    })
-  }
-  TraerGanadores(){
-    this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
-  }
-  TraerPerdedores(){
-    this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
-
-    })
   }
 
 }

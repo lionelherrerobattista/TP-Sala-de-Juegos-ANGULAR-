@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { DatosJuegoService } from '../../servicios/datos-juego.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.component';
+
 
 @Component({
   selector: 'app-memoria',
@@ -24,8 +29,9 @@ export class MemoriaComponent implements OnInit {
   continuarJuego:boolean;//para dejar 1 segundo la segunda carta
   jugando:boolean;
   gano:boolean;
+  mensajeResultado:string;
 
-  constructor() {
+  constructor(private authService:AuthService, private datosJuegoService:DatosJuegoService, public matDialog: MatDialog) {
 
 
     this.jugando = false;
@@ -182,16 +188,50 @@ export class MemoriaComponent implements OnInit {
     if(this.terminoTiempo) {
       this.jugando = false;
       console.log('perdiste');
+      this.AbrirModalResultado()
     }
 
     //Compruebo si ganó
     if(this.paresEncontrados == 6)
     {
+      var nombreUsuario;
+      var resultadoParaLista;
+
       this.gano = true;
       this.jugando = false;
 
       console.log('ganaste');
+
+      this.AbrirModalResultado()
+
+       // enviar los datos a la lista
+       nombreUsuario = this.authService.mostrarNombre();
+       resultadoParaLista = {
+         juego: 'Memoria',
+         jugador: nombreUsuario,
+         resultado: 'Ganó',
+       }
+
+       this.datosJuegoService.cargarResultado(resultadoParaLista);
     }
+
+  }
+
+  AbrirModalResultado() {
+
+    if(this.gano) {
+      this.mensajeResultado = 'Ganaste';
+    } else {
+      this.mensajeResultado = 'Perdiste';
+    }
+
+    //Abrir el modal de material
+    this.matDialog.open(ResultadoJuegoComponent, {
+      data: {
+        resultado: this.mensajeResultado,
+      },
+
+    });
 
   }
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { DatosJuegoService } from '../../servicios/datos-juego.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.component';
 
 @Component({
   selector: 'app-anagrama',
@@ -15,7 +19,10 @@ export class AnagramaComponent implements OnInit {
   empezoJuego:boolean;
   terminoJuego:boolean;
 
-  constructor() {
+  constructor(private authService:AuthService,
+    private datosJuegoService:DatosJuegoService,
+    public matDialog: MatDialog) {
+
     this.terminoJuego = false;
    }
 
@@ -55,13 +62,25 @@ export class AnagramaComponent implements OnInit {
   }
 
   comprobarRespuesta() {
+
+    var nombreUsuario;
+    var resultadoParaLista;
+
     console.log(this.respuestaUsuario);
 
     if(this.respuestaUsuario === this.palabra)
     {
       this.terminoJuego = true;
       this.resultado = "Ganó";
-      console.log("Ganó");
+
+      // enviar los datos a la lista
+      nombreUsuario = this.authService.mostrarNombre();
+      resultadoParaLista = {
+        juego: 'Anagrama',
+        jugador: nombreUsuario,
+        resultado: 'Ganó',
+      }
+      this.datosJuegoService.cargarResultado(resultadoParaLista);
     } else {
       this.terminoJuego = true;
       this.resultado = "Respuesta incorrecta";
@@ -74,6 +93,18 @@ export class AnagramaComponent implements OnInit {
     this.terminoJuego = false;
     this.resultado = '';
     this.respuestaUsuario= '';
+
+  }
+
+  AbrirModalResultado() {
+
+    //Abrir el modal de material
+    this.matDialog.open(ResultadoJuegoComponent, {
+      data: {
+        resultado: this.resultado,
+      },
+
+    });
 
   }
 }

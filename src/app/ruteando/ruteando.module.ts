@@ -25,7 +25,9 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { MemoriaComponent } from '../componentes/memoria/memoria.component';
+import { AngularFireAuthGuard, redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['Login']);
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -51,7 +53,7 @@ children: [
   {path: 'Ppt' , component: PptComponent},
   {path: 'Tateti' , component: TatetiComponent},
   {path: 'Memoria', component: MemoriaComponent},
-]
+], ...canActivate(redirectUnauthorizedToLogin)
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];

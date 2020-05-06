@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -7,16 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  isCollapsed = false;
+  // isCollapsed = false;
 
-  mostrarNavbar() {
-    this.isCollapsed = !this.isCollapsed;
-  }
+  // mostrarNavbar() {
+  //   this.isCollapsed = !this.isCollapsed;
+  // }
+
+  usuarioLogeado:boolean;
+  nombreUsuario:string;
 
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+
+    this.usuarioLogeado = this.authService.comprobarInicioSesion();
+    this.nombreUsuario = this.authService.mostrarNombre();
+
   }
+
+  cerrarSesion() {
+    this.authService.cerrarSesion();
+  }
+
+
 
 }

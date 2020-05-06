@@ -16,7 +16,7 @@
 </ul> -->
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="listaJugadores" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -41,7 +41,7 @@
 
   <!-- Gano Column -->
   <ng-container matColumnDef="gano">
-    <th mat-header-cell *matHeaderCellDef> Ganó </th>
+    <th mat-header-cell *matHeaderCellDef> Último Resultado </th>
     <td mat-cell *matCellDef="let element"> {{element.gano}} </td>
   </ng-container>
 

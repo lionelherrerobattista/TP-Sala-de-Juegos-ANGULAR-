@@ -1,52 +1,4 @@
 
-
-
-<!-- Modal -->
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Registro</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Ingresá tu correo">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Clave</label>
-            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Tu clave">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Repita la clave</label>
-            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Acá repetí la clave">
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Recordar mis datos</label>
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" routerLink="/Principal">Me arrepentí</button>
-        <button type="button" class="btn btn-primary">Registrarme</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- fin del modal -->
-
 <!-- Términos y condiciones -->
 <div class="container" id="terminos">
   <h2 class="text-center" id="terminos">Terminos y condiciones</h2>
@@ -66,20 +18,8 @@
   </strong>
 
   <div id="box-botones" class="row justify-content-end">
-    <button class="btn btn-success" onclick="document.getElementById('id01').style.display='block'">Acepto</button>
+    <button class="btn btn-success" (click)="abrirModalRegistro()">Acepto</button>
     <button class="btn btn-danger" routerLink="/Principal">No acepto</button>
   </div>
 </div>
 <!-- fin términos y condiciones -->
-
-<script>
-  // Get the modal
-  var modal = document.getElementById('id01');
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>

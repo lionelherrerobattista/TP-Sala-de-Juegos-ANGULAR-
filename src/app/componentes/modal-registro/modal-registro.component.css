@@ -1,0 +1,11 @@
+#formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-radio-group {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

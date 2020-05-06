@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { DatosJuegoService } from '../../servicios/datos-juego.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ResultadoJuegoComponent } from '../resultado-juego/resultado-juego.component';
 
 @Component({
   selector: 'app-tateti',
@@ -15,7 +19,7 @@ export class TatetiComponent implements OnInit {
   terminoJuego:boolean;
   resultado:string;
 
-  constructor() {
+  constructor(private authService:AuthService, private datosJuegoService:DatosJuegoService, public matDialog: MatDialog) {
 
     this.estadoCasilleros = ["-","-","-","-","-","-","-","-","-"];
     this.movimientosPosibles = 9;
@@ -103,12 +107,16 @@ export class TatetiComponent implements OnInit {
           this.terminoJuego = true;
           this.resultado = 'Ganaste';
           console.log(this.resultado);
+          this.enviarResultado();
+          this.AbrirModalResultado();
         }
         else
         {
           this.terminoJuego = true;
           this.resultado = 'Perdiste';
           console.log(this.resultado);
+          this.enviarResultado();
+          this.AbrirModalResultado();
         }
 
       }
@@ -120,6 +128,8 @@ export class TatetiComponent implements OnInit {
       this.terminoJuego = true;
       this.resultado = 'Empate';
 
+      this.enviarResultado();
+      this.AbrirModalResultado();
       console.log(this.resultado);
     }
   }
@@ -141,5 +151,45 @@ export class TatetiComponent implements OnInit {
     this.terminoJuego = false;
     this.gano = false;
   }
+
+
+  enviarResultado() {
+
+    var nombreUsuario;
+    var resultadoParaLista;
+    var resultado;
+
+    if(this.resultado='Ganaste') {
+      resultado = 'Ganó';
+    } else if (this.resultado='Ganaste') {
+      resultado = 'Perdió';
+    } else {
+      resultado = 'Empató';
+    }
+
+
+    // enviar los datos a la lista
+     nombreUsuario = this.authService.mostrarNombre();
+     resultadoParaLista = {
+       juego: 'Ta te ti',
+       jugador: nombreUsuario,
+       resultado: resultado,
+     }
+
+     this.datosJuegoService.cargarResultado(resultadoParaLista);
+  }
+
+  AbrirModalResultado() {
+
+    //Abrir el modal de material
+    this.matDialog.open(ResultadoJuegoComponent, {
+      data: {
+        resultado: this.resultado,
+      },
+
+    });
+
+  }
+
 
 }
