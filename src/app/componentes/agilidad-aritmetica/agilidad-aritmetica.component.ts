@@ -56,7 +56,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
     //Iniciar las variables del juego:
     this.ocultarVerificar=true;
-    this.tiempo=5;
+    this.tiempo=10;
     this.nuevoJuego = new JuegoAgilidad();
     console.info("Inicio agilidad");
   }
@@ -82,7 +82,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
         this.verificar();
         this.ocultarVerificar=true;
-        this.tiempo=5;
+        this.tiempo=10;
       }
 
     }, 900);
@@ -101,18 +101,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
     //Verificar la cuenta:
     if(this.respuesta == this.resultado ) {
 
-      // enviar los datos a la lista
-      nombreUsuario = this.authService.mostrarNombre();
-
-      this.resultadoParaLista = {
-        juego: 'Agilidad aritmética',
-        jugador: nombreUsuario,
-        resultado: 'Ganó',
-      }
-
-      this.datosJuegoService.cargarResultado(this.resultadoParaLista);
       this.mensajeResultado = 'Ganaste';
 
+      this.enviarResultado();
 
       //Mostrar menú jugar de nuevo
       this.nuevoJuego.gano = true;
@@ -123,7 +114,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     } else {
 
       this.mensajeResultado = 'Perdiste';
-      console.log("Perdió");
+      this.enviarResultado();
       this.nuevoJuego.gano = false;
       //Mostrar menú jugar de nuevo
       this.AbrirModalResultado();
@@ -168,6 +159,43 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
     console.log(this.resultado);
   }
+
+  reiniciarJuego() {
+
+        //Iniciar las variables del juego:
+        this.ocultarVerificar=true;
+        this.tiempo=10;
+        this.nuevoJuego = new JuegoAgilidad();
+        console.info("Inicio agilidad");
+
+  }
+
+  enviarResultado() {
+
+    var nombreUsuario;
+    var resultadoParaLista;
+    var resultado;
+
+    if(this.mensajeResultado =='Ganaste') {
+      resultado = 'Ganó';
+    } else if (this.mensajeResultado == 'Perdiste') {
+      resultado = 'Perdió';
+    } else {
+      resultado = 'Empató';
+    }
+
+    // enviar los datos a la lista
+     nombreUsuario = this.authService.mostrarNombre();
+     resultadoParaLista = {
+       juego: 'Piedra, papel o tijera',
+       jugador: nombreUsuario,
+       resultado: resultado,
+     }
+
+     this.datosJuegoService.cargarResultado(resultadoParaLista);
+  }
+
+
 
   AbrirModalResultado() {
 

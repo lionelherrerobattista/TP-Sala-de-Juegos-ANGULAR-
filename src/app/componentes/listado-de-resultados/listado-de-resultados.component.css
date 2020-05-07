@@ -1,16 +1,13 @@
+#tabla {
+
+  display:flex;
+  justify-content: center;
+
+}
+
 table {
   width: 100%;
 }
-
-
-th {
-  text-align: center!important;
-}
-
-td {
-  text-align: center;
-}
-
 
 a {
   text-decoration: none;

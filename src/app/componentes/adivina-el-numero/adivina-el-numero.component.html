@@ -6,9 +6,9 @@
   <div class='form'>
     <form name="adivinaElNumero">
 
-      <mat-form-field>
+      <mat-form-field *ngIf="!ocultarVerificar">
         <mat-label>Tu número:</mat-label>
-          <input matInput [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Tu número" name="numeroIngresado" type="text"/>
+          <input matInput  [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="Tu número" name="numeroIngresado" type="text"/>
       </mat-form-field>
 
       <div id='numero-ingresado'>
@@ -16,8 +16,8 @@
       </div>
 
       <div id='botones'>
-        <button mat-raised-button color="primary" [hidden]="ocultarVerificar" *ngIf="nuevoJuego.numeroSecreto != 0" (click)="Verificar()">Verificar</button>
-        <button mat-raised-button color="primary" *ngIf="nuevoJuego.numeroSecreto == 0 " (click)="ComenzarJuego()">Nuevo número secreto</button>
+        <button mat-raised-button color="primary" *ngIf="!ocultarVerificar" (click)="Verificar()">Verificar</button>
+        <button mat-raised-button color="primary" *ngIf="ocultarVerificar" (click)="ComenzarJuego()">Nuevo número secreto</button>
       </div>
 
       <!-- <h2><p *ngIf="nuevoJuego.numeroSecreto != 0"><i ></i>Esperando que ingrese un número</p></h2> -->
@@ -29,8 +29,8 @@
     </div>
 
     <div id='resultado'>
-      <h3 [hidden]="!nuevoJuego.gano">Usted adivino el número</h3>
-      <h3 [hidden]="nuevoJuego.gano">Usted aún no gano </h3>
+      <h3 [hidden]="!nuevoJuego.gano">Adivinaste el número</h3>
+      <h3 [hidden]="nuevoJuego.gano">Todavía no ganaste</h3>
     </div>
 
   </div>

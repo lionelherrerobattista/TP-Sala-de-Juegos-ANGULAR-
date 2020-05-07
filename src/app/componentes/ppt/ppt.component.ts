@@ -49,53 +49,57 @@ export class PptComponent implements OnInit {
   //Compara las opciones y muestra el resultado
   CompararResultado() {
 
-    //Generar una opción para la máquina:
-    this.GenerarOpcionRandom();
+    if(this.opcionUsuario == 'Usuario') {
 
-    if(this.opcionUsuario == this.opcionMaquina) {
-      this.gano = false;
-      this.resultado = 'Empate';
-    }
-    else
-    {
-      switch(this.opcionUsuario) {
-        case 'piedra':
-          if(this.opcionMaquina == 'tijera') {
-            this.gano = true;
-            this.resultado = 'Ganaste'
-          } else {
-            this.gano = false;
-            this.resultado = 'Perdiste'
-          }
-          break;
+    } else {
+      //Generar una opción para la máquina:
+      this.GenerarOpcionRandom();
 
-        case 'papel':
-          if(this.opcionMaquina == 'piedra') {
-            this.gano = true;
-            this.resultado = 'Ganaste'
-          } else {
-            this.gano = false;
-            this.resultado = 'Perdiste'
-          }
-          break;
-
-        case 'tijera':
-          if(this.opcionMaquina == 'papel') {
-            this.gano = true;
-            this.resultado = 'Ganaste'
-          } else {
-            this.gano = false;
-            this.resultado = 'Perdiste'
-          }
-          break;
+      if(this.opcionUsuario == this.opcionMaquina) {
+        this.gano = false;
+        this.resultado = 'Empate';
       }
+      else
+      {
+        switch(this.opcionUsuario) {
+          case 'piedra':
+            if(this.opcionMaquina == 'tijera') {
+              this.gano = true;
+              this.resultado = 'Ganaste'
+            } else {
+              this.gano = false;
+              this.resultado = 'Perdiste'
+            }
+            break;
+
+          case 'papel':
+            if(this.opcionMaquina == 'piedra') {
+              this.gano = true;
+              this.resultado = 'Ganaste'
+            } else {
+              this.gano = false;
+              this.resultado = 'Perdiste'
+            }
+            break;
+
+          case 'tijera':
+            if(this.opcionMaquina == 'papel') {
+              this.gano = true;
+              this.resultado = 'Ganaste'
+            } else {
+              this.gano = false;
+              this.resultado = 'Perdiste'
+            }
+            break;
+        }
+      }
+
+      this.terminoJuego = true;
+
+      this.enviarResultado();
+
+      this.AbrirModalResultado();
     }
-
-    this.terminoJuego = true;
-
-    this.enviarResultado();
-
-    this.AbrirModalResultado();
   }
 
 
@@ -105,9 +109,9 @@ export class PptComponent implements OnInit {
     var resultadoParaLista;
     var resultado;
 
-    if(this.resultado='Ganaste') {
+    if(this.resultado == 'Ganaste') {
       resultado = 'Ganó';
-    } else if (this.resultado='Perdiste') {
+    } else if (this.resultado == 'Perdiste') {
       resultado = 'Perdió';
     } else {
       resultado = 'Empató';
@@ -133,6 +137,8 @@ export class PptComponent implements OnInit {
       },
 
     });
+
+    this.terminoJuego = false;
 
   }
 

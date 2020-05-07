@@ -16,6 +16,7 @@ export class AnagramaComponent implements OnInit {
   palabra:string;
   respuestaUsuario:string;
   resultado:string;
+  mensajeResultado:string;
   empezoJuego:boolean;
   terminoJuego:boolean;
 
@@ -71,20 +72,22 @@ export class AnagramaComponent implements OnInit {
     if(this.respuestaUsuario === this.palabra)
     {
       this.terminoJuego = true;
-      this.resultado = "Ganó";
+      this.resultado= "Ganó";
+      this.mensajeResultado = 'Ganaste';
 
       // enviar los datos a la lista
-      nombreUsuario = this.authService.mostrarNombre();
-      resultadoParaLista = {
-        juego: 'Anagrama',
-        jugador: nombreUsuario,
-        resultado: 'Ganó',
-      }
-      this.datosJuegoService.cargarResultado(resultadoParaLista);
+      this.enviarResultado();
+      this.AbrirModalResultado();
+
     } else {
+
       this.terminoJuego = true;
       this.resultado = "Respuesta incorrecta";
+      this.mensajeResultado = 'Perdiste';
+
       console.log("Respuesta incorrecta");
+      this.enviarResultado();
+      this.AbrirModalResultado();
     }
   }
 
@@ -96,12 +99,37 @@ export class AnagramaComponent implements OnInit {
 
   }
 
+  enviarResultado() {
+
+    var nombreUsuario;
+    var resultadoParaLista;
+    var resultado;
+
+    if(this.mensajeResultado =='Ganaste') {
+      resultado = 'Ganó';
+    } else if (this.mensajeResultado == 'Perdiste') {
+      resultado = 'Perdió';
+    } else {
+      resultado = 'Empató';
+    }
+
+    // enviar los datos a la lista
+     nombreUsuario = this.authService.mostrarNombre();
+     resultadoParaLista = {
+       juego: 'Anagrama',
+       jugador: nombreUsuario,
+       resultado: resultado,
+     }
+
+     this.datosJuegoService.cargarResultado(resultadoParaLista);
+  }
+
   AbrirModalResultado() {
 
     //Abrir el modal de material
     this.matDialog.open(ResultadoJuegoComponent, {
       data: {
-        resultado: this.resultado,
+        resultado: this.mensajeResultado,
       },
 
     });

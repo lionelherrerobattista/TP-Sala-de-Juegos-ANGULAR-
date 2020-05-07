@@ -1,16 +1,15 @@
 <div id='ring'>
-  <button [ngClass]='claseBtnUsuario' id='btn-usuario'>{{opcionUsuario}}</button>
-  <button [ngClass]='claseBtnMaquina' id='btn-maquina'>{{opcionMaquina}}</button>
+  <button [ngClass]='claseBtnUsuario' id='btn-usuario'></button>
+  <button [ngClass]='claseBtnMaquina' id='btn-maquina'></button>
 </div>
 <div id='resultado'>
-  <h1>Resultado: {{resultado}}</h1>
   <button mat-raised-button (click)="CompararResultado()">Jugar</button>
 </div>
 <div *ngIf="!terminoJuego" id='instrucciones'>
-  <h1>Elegí una de las opciones:</h1>
+  <h1>Elegí una de las opciones y tocá jugar</h1>
 </div>
 <div id='botones-seleccion'>
-  <button class='btn-piedra' (click)="ElegirOpcion('piedra')">Piedra</button>
-  <button class='btn-papel' (click)="ElegirOpcion('papel')">Papel</button>
-  <button class='btn-tijera' (click)="ElegirOpcion('tijera')">Tijera</button>
+  <button class='btn-piedra' (click)="ElegirOpcion('piedra')"></button>
+  <button class='btn-papel' (click)="ElegirOpcion('papel')"></button>
+  <button class='btn-tijera' (click)="ElegirOpcion('tijera')"></button>
 </div>

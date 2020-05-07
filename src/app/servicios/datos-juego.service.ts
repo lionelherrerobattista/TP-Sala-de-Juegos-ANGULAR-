@@ -20,8 +20,8 @@ export interface Resultado {
 export class DatosJuegoService {
 
   listaResultados:Resultado[] = [
-    {juego: 'Adivina', jugador: 'aaa', resultado: 'Ganó'},
-    {juego: 'Tateti', jugador: 'bbb', resultado: 'Perdió'},
+    {juego: 'Adivina', jugador: 'Juan', resultado: 'Ganó'},
+    {juego: 'Tateti', jugador: 'María', resultado: 'Perdió'},
   ];
 
 

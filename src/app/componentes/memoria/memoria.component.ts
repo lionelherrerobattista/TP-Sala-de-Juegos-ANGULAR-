@@ -48,6 +48,10 @@ export class MemoriaComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    clearInterval(this.contadorTiempo);
+  }
+
   //Empieza el juego
   empezarJuego() {
 

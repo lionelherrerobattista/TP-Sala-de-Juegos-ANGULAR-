@@ -159,9 +159,9 @@ export class TatetiComponent implements OnInit {
     var resultadoParaLista;
     var resultado;
 
-    if(this.resultado='Ganaste') {
+    if(this.resultado == 'Ganaste') {
       resultado = 'Ganó';
-    } else if (this.resultado='Ganaste') {
+    } else if (this.resultado == 'Perdiste') {
       resultado = 'Perdió';
     } else {
       resultado = 'Empató';

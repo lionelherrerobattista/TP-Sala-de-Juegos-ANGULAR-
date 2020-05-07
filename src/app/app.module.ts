@@ -59,6 +59,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemoriaComponent } from './componentes/memoria/memoria.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSortModule} from '@angular/material/sort';
 
 //environment
 import { environment } from '../environments/environment';
@@ -123,6 +124,7 @@ import { ModalRegistroComponent } from './componentes/modal-registro/modal-regis
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatRadioModule,
     MatIconModule,
+    MatSortModule,
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

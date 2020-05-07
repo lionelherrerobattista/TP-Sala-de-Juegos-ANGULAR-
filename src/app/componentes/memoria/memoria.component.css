@@ -38,6 +38,7 @@ h3 {
 button {
   height: 15vh;
   width: 18vw;
+  border: none;
 }
 
 /* 6 clases diferentes y clase vacia */

@@ -19,7 +19,9 @@ export class AdivinaElNumeroComponent implements OnInit {
   resultadoParaLista:Resultado;
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
+
   contador:number;
+  gano:boolean;
   ocultarVerificar:boolean;
   jugador:string;
 
@@ -31,7 +33,7 @@ export class AdivinaElNumeroComponent implements OnInit {
 
     this.nuevoJuego = new JuegoAdivina();
     console.info("Numero secreto:",this.nuevoJuego.numeroSecreto);
-    this.ocultarVerificar=false;
+    this.ocultarVerificar=true;
   }
 
 
@@ -41,48 +43,36 @@ export class AdivinaElNumeroComponent implements OnInit {
 
   ComenzarJuego() {
     this.nuevoJuego.GenerarNumero();
+    this.ocultarVerificar=false;
     this.contador= 0;
+    this.Mensajes = '';
   }
+
 
   Verificar()
   {
-    var nombreUsuario;
 
     this.contador++;
-    this.ocultarVerificar=true;
-
     console.info("Numero secreto:", this.nuevoJuego.gano);
 
     //función recursiva
     if(this.nuevoJuego.Verificar()) {
 
-      this.mensajeResultado = 'Ganaste';
-
-      // enviar los datos a la lista
-      nombreUsuario = this.authService.mostrarNombre();
-
-      this.resultadoParaLista = {
-        juego: 'Adivina el número',
-        jugador: nombreUsuario,
-        resultado: 'Ganó',
-      }
-
-      this.datosJuegoService.cargarResultado(this.resultadoParaLista);
-
       this.MostarMensaje("Sos un Genio!!!", true);
-
+      this.mensajeResultado = 'Ganaste';
+      this.enviarResultado();
       this.AbrirModalResultado();
+      this.ocultarVerificar = true;
 
-      this.nuevoJuego.numeroSecreto= 0;
+    } else if (this.contador > 10) {
 
-    }else{
-
-      this.CrearMensaje();
-
-
-      this.ocultarVerificar = false;
       this.mensajeResultado = 'Perdiste';
+      this.enviarResultado();
+      this.AbrirModalResultado();
+      this.ocultarVerificar = true;
 
+    } else {
+      this.CrearMensaje();
     }
 
     console.info("¿Ganó? ", this.nuevoJuego.gano);
@@ -128,6 +118,32 @@ export class AdivinaElNumeroComponent implements OnInit {
     this.Mensajes= mensaje;
 
   }
+
+  enviarResultado() {
+
+    var nombreUsuario;
+    var resultadoParaLista;
+    var resultado;
+
+    if(this.mensajeResultado == 'Ganaste') {
+      resultado = 'Ganó';
+    } else if (this.mensajeResultado == 'Perdiste') {
+      resultado = 'Perdió';
+    } else {
+      resultado = 'Empató';
+    }
+
+    // enviar los datos a la lista
+     nombreUsuario = this.authService.mostrarNombre();
+     resultadoParaLista = {
+       juego: 'Piedra, papel o tijera',
+       jugador: nombreUsuario,
+       resultado: resultado,
+     }
+
+     this.datosJuegoService.cargarResultado(resultadoParaLista);
+  }
+
 
   AbrirModalResultado() {
 
