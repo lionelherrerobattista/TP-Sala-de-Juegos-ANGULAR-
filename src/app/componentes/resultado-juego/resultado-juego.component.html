@@ -1,8 +1,10 @@
 
 <h2 mat-dialog-title>¿Querés seguir jugando?</h2>
-<mat-dialog-content>¡{{data.resultado}}!</mat-dialog-content>
+<mat-dialog-content>
+  <h3>¡{{data.resultado}}!</h3>
+</mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="VolverAlMenu()">Salir</button>
-  <button mat-button (click)="ReiniciarJuego()">Juego Nuevo</button>
+  <button mat-raised-button color='warn' (click)="VolverAlMenu()">Salir</button>
+  <button mat-raised-button color='primary' (click)="ReiniciarJuego()">Juego Nuevo</button>
 </mat-dialog-actions>
 

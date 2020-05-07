@@ -1,21 +1,74 @@
-mat-toolbar {
-  margin-bottom: 2vh;
+h3 {
+  margin-top: 0.5vh;
+  font-size: 4vw;
 }
 
-a {
-  text-decoration: none;
-}
-/* unvisited link */
-a:link {
-  color: white;
+button {
+  font-size: 4vw;
 }
 
-/* visited link */
-a:visited {
-  color: white;
+#boton-desplegable {
+
+}
+
+#menu {
+  display: none;
+}
+
+.panel
+{
+    height: 200px;
+    background-image: url("/TP_LAV4_2017/assets/imagenes/cabecera.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#contenedor-cabecera{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:100%;
+}
+
+#nombreUsuario {
+  display: flex;
+  flex-direction: row;
+}
+
+#box-cabecera {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+#box-info a {
+  margin-right: 0.5vw;
 }
 
 
-.menu-principal {
-  margin-left: 2vw;
+@media only screen and (min-width: 768px) {
+  h3 {
+
+    font-size: 1.2vw;
+  }
+
+  button {
+
+    font-size: 1.2vw;
+  }
+
+
+#boton-desplegable {
+  display: none;
+}
+
+  #menu {
+    display: block;
+  }
+
+
+
+
+
 }

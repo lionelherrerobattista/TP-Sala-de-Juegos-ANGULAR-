@@ -1,65 +1,10 @@
-<mat-toolbar color='primary'>
-  <span>Sala de Juegos</span>
-  <div id='contenedor-cabecera'>
-    <div>
-      <button mat-button routerLink="/Principal">Home</button>
-      <button class="menu-principal" mat-button *ngIf="usuarioLogeado" [matMenuTriggerFor]="menu">Juegos</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/Juegos/Adivina">Adivina</button>
-        <button mat-menu-item routerLink="/Juegos/Agilidad">Agilidad</button>
-        <button mat-menu-item routerLink="/Juegos/Anagrama">Anagrama</button>
-        <button mat-menu-item routerLink="/Juegos/Ppt">Piedra, Papel, Tijera</button>
-        <button mat-menu-item routerLink="/Juegos/Memoria">Memoria</button>
-        <button mat-menu-item routerLink="/Juegos/Tateti">Ta Te Ti</button>
-      </mat-menu>
-      <button class="menu-principal" mat-button *ngIf="usuarioLogeado" [matMenuTriggerFor]="listado">Listados</button>
-      <mat-menu #listado="matMenu">
-        <button mat-menu-item routerLink="/Listado">Lista de resultados</button>
-        <button mat-menu-item routerLink="/Jugadores">Lista de jugadores</button>
-      </mat-menu>
-    </div>
-    <div *ngIf="!usuarioLogeado; else templateSaludo">
-      <button mat-button routerLink="/Registro">Registro</button>
-      <button mat-button routerLink="/Login">Iniciar Sesión</button>
-    </div>
-    <ng-template #templateSaludo>
-      <div id="nombreUsuario">
-        <h3>¡Hola {{nombreUsuario}}!</h3>
-        <button mat-button (click)="cerrarSesion()">Cerrar Sesión</button>
-      </div>
-    </ng-template>
-  </div>
-</mat-toolbar>
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand">Sala de Juegos</a>
-  <button (click)="mostrarNavbar()" class="navbar-toggler" type="button" data-toggle="collapse"
-    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" [ngClass]="{ show: isCollapsed }" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/Principal">Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/Registro">Registro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/Login">Iniciar Sesión</a>
-      </li>
-    </ul>
-  </div>
-</nav> -->
+<app-menu></app-menu>
 
 <div id="box-cabecera">
   <h1 class="text-center" style="font-size: 50px;">Sala de Juegos</h1>
   <p class="text-center">por Lionel Roberto Herrero Battista</p>
   <div class="text-center" id="box-info">
-    <a class="badge badge-info align-self-center" href="https://github.com/lionelherrerobattista" target="_blank">en
-      GitHub</a>
-    <a class="badge badge-info align-self-center" routerLink="/QuienSoy">¿Quién Soy?</a>
+    <a mat-raised-button href="https://github.com/lionelherrerobattista" target="_blank">En GitHub</a>
+    <a mat-raised-button routerLink="/QuienSoy">¿Quién soy?</a>
   </div>
 </div>

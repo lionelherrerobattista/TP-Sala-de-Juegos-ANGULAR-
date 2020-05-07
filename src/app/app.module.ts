@@ -58,6 +58,7 @@ import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemoriaComponent } from './componentes/memoria/memoria.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
 
 //environment
 import { environment } from '../environments/environment';
@@ -121,6 +122,7 @@ import { ModalRegistroComponent } from './componentes/modal-registro/modal-regis
     MatDialogModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatRadioModule,
+    MatIconModule,
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

@@ -1,13 +1,62 @@
+
 <mat-toolbar color='primary'>
-  <a routerLink='/Principal'>Sala de Juegos</a>
-  <button class="menu-principal" mat-button [matMenuTriggerFor]="menu">Menu</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/Principal">Principal</button>
-    <button mat-menu-item (click)="Juego('Adivina')">Adivina</button>
-    <button mat-menu-item (click)="Juego('Agilidad')">Agilidad</button>
-    <button mat-menu-item (click)="Juego('Anagrama')">Anagrama</button>
-    <button mat-menu-item (click)="Juego('Ppt')">Piedra, Papel, Tijera</button>
-    <button mat-menu-item (click)="Juego('Memoria')">Memoria</button>
-    <button mat-menu-item (click)="Juego('Tateti')">Ta Te Ti</button>
-  </mat-menu>
+  <!-- <span>Sala de Juegos</span> -->
+  <div id='contenedor-cabecera'>
+
+    <!-- Menú para pantallas de celular -->
+    <div id='boton-desplegable'>
+      <button mat-icon-button [matMenuTriggerFor]="opciones">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-menu #opciones="matMenu">
+        <button mat-menu-item routerLink="/Principal">Home</button>
+        <button mat-menu-item [matMenuTriggerFor]="juegos">Juegos</button>
+        <button mat-menu-item [matMenuTriggerFor]="listado">Listados</button>
+      </mat-menu>
+
+      <mat-menu #juegos="matMenu">
+        <button mat-menu-item routerLink="/Juegos/Adivina">Adivina</button>
+        <button mat-menu-item routerLink="/Juegos/Agilidad">Agilidad</button>
+        <button mat-menu-item routerLink="/Juegos/Anagrama">Anagrama</button>
+        <button mat-menu-item routerLink="/Juegos/Ppt">Piedra, Papel, Tijera</button>
+        <button mat-menu-item routerLink="/Juegos/Memoria">Memoria</button>
+        <button mat-menu-item routerLink="/Juegos/Tateti">Ta Te Ti</button>
+      </mat-menu>
+
+      <mat-menu #listado="matMenu">
+        <button mat-menu-item routerLink="/Listado">Lista de resultados</button>
+        <button mat-menu-item routerLink="/Jugadores">Lista de jugadores</button>
+      </mat-menu>
+    </div>
+    <!-- Fin menú para celular -->
+    <div id='menu'>
+      <span>Sala de Juegos</span>
+      <button mat-button routerLink="/Principal">Home</button>
+      <button class="menu-principal" mat-button *ngIf="usuarioLogeado" [matMenuTriggerFor]="menu">Juegos</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/Juegos/Adivina">Adivina</button>
+        <button mat-menu-item routerLink="/Juegos/Agilidad">Agilidad</button>
+        <button mat-menu-item routerLink="/Juegos/Anagrama">Anagrama</button>
+        <button mat-menu-item routerLink="/Juegos/Ppt">Piedra, Papel, Tijera</button>
+        <button mat-menu-item routerLink="/Juegos/Memoria">Memoria</button>
+        <button mat-menu-item routerLink="/Juegos/Tateti">Ta Te Ti</button>
+      </mat-menu>
+      <button class="menu-principal" mat-button *ngIf="usuarioLogeado" [matMenuTriggerFor]="listado">Listados</button>
+      <mat-menu #listado="matMenu">
+        <button mat-menu-item routerLink="/Listado">Lista de resultados</button>
+        <button mat-menu-item routerLink="/Jugadores">Lista de jugadores</button>
+      </mat-menu>
+    </div>
+    <div *ngIf="!usuarioLogeado; else templateSaludo">
+      <button mat-button routerLink="/Registro">Registro</button>
+      <button mat-button routerLink="/Login">Iniciar Sesión</button>
+    </div>
+    <ng-template #templateSaludo>
+      <div id="nombreUsuario">
+        <h3>¡Hola, {{nombreUsuario}}!</h3>
+        <button mat-button (click)="cerrarSesion()">Cerrar Sesión</button>
+      </div>
+    </ng-template>
+  </div>
 </mat-toolbar>

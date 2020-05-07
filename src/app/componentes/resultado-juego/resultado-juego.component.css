@@ -1,0 +1,9 @@
+
+h3 {
+  text-align: center;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-around;
+}

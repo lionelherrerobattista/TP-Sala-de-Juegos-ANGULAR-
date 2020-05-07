@@ -12,12 +12,14 @@
       <mat-label>Clave</mat-label>
       <input matInput type="password" placeholder="Clave" [(ngModel)]="clave"  name="psw" required>
     </mat-form-field>
-
-    <button (click)="completarLogin('admin')">Admin</button>
-    <!-- <mat-checkbox>Recordar mis datos</mat-checkbox> -->
+    <mat-label>Autocompletado:</mat-label>
+    <div id='botonoes-autocompletar'>
+      <button mat-raised-button color='warn' (click)="completarLogin('admin')">Admin</button>
+      <button mat-raised-button color='accent'(click)="completarLogin('jugadorUno')">Jugador 1</button>
+    </div>
 
     <div class="botones-formulario">
-      <button mat-raised-button (click)="iniciarSesion()">Ingresar</button>
+      <button mat-raised-button color='primary' (click)="iniciarSesion()">Ingresar</button>
     </div>
   </form>
 
@@ -26,8 +28,8 @@
       <p>¿No está registrado?</p>
     </div>
     <div class="botones-opciones">
-      <button mat-raised-button routerLink="/Principal">Cancelar</button>
-      <button mat-raised-button routerLink="/Registro">Registrarse</button>
+      <button mat-raised-button color='warn' routerLink="/Principal">Cancelar</button>
+      <button mat-raised-button color='primary' routerLink="/Registro">Registrarse</button>
     </div>
   </div>
 

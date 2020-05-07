@@ -18,6 +18,11 @@ h3 {
   font-size: 5vw;
 }
 
+button {
+  font-size: 5vw;
+}
+
+
 
 @media only screen and (min-width: 768px) {
 
@@ -29,6 +34,12 @@ h3 {
   h3 {
     font-size: 1.8vw;
   }
+
+
+  button {
+    /* font-size: 5vw; */
+  }
+
 
 
 }

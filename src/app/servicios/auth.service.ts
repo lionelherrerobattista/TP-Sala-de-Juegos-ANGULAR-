@@ -63,7 +63,15 @@ export class AuthService {
 
     if(this.usuarioLogeado) {
 
-      nombreUsuario = this.jugadoresService.buscarJugador(this.usuarioActivo.email);
+
+      if(this.usuarioActivo.email == 'admin@admin.com') {
+
+        nombreUsuario= 'admin'
+
+      } else {
+        nombreUsuario = this.jugadoresService.buscarJugador(this.usuarioActivo.email);
+      }
+
       return nombreUsuario;
 
     } else {
