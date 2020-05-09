@@ -40,12 +40,12 @@ mat-card-actions {
   }
 
   p {
-    font-size: 1.2vw;
+    font-size: 1.1vw;
     text-align: center;
   }
 
   mat-card {
-    height: 67vh;
+    height: 55vh;
   }
 
   mat-card-actions {
@@ -54,7 +54,7 @@ mat-card-actions {
   }
 
   mat-card-title {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     text-align: center;
   }
 

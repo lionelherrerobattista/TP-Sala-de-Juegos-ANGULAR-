@@ -19,6 +19,11 @@ import { DatosJuegoService, Resultado } from '../../servicios/datos-juego.servic
 
 export class AgilidadAritmeticaComponent implements OnInit {
 
+  ngOnDestroy() {
+    clearInterval(this.repetidor);
+  }
+
+
   mensajeResultado:string;
 
   //Se presenta una cuenta y se debe averiguar el resultado
