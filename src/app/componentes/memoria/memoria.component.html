@@ -1,7 +1,7 @@
 <h1>Da vuelta las cartas y tratá de encontrar los pares de imágenes</h1>
 
 <div id='botones'>
-  <button *ngIf='!jugando; else tiempoRestante' id='btn-empezar' (click)='empezarJuego()'><h3>Empezar</h3></button>
+  <button mat-raised-button color='accent' *ngIf='!jugando; else tiempoRestante' id='btn-empezar' (click)='empezarJuego()'><h3>Empezar</h3></button>
   <ng-template #tiempoRestante><h3>Tiempo Restante: {{tiempoJuego}}</h3></ng-template>
 </div>
 

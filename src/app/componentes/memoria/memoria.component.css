@@ -81,24 +81,35 @@ button {
 @media only screen and (min-width: 768px) {
 
   h3 {
+    margin: 0.3vh 0 0 0;
+
     font-size: 1.5vw;
+    text-align: center;
   }
+
   #btn-empezar {
-    height: 4vh;
-    width: 15vw;
+    height: 5vh;
+    width: 10vw;
     max-width: 100%;
   }
 
   #cartas {
-    height: 80vh;
-    padding: 2vh 10vw 2vh 10vw
+    max-height: 100%;
+    padding: 2vh 20vw 2vh 20vw
   }
 
 
+  .fila {
+    height: 100%;
+    width:100%;
+    margin-bottom: 2vh;
+  }
+
 
   button {
-    height: 20vh;
+    height: 22vh;
     width: 8vw;
+
   }
 
 
