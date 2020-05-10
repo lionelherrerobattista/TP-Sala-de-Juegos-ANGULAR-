@@ -69,7 +69,7 @@ export class AuthService {
         nombreUsuario= 'admin'
 
       } else {
-        nombreUsuario = this.jugadoresService.buscarJugador(this.usuarioActivo.email);
+        nombreUsuario = this.jugadoresService.buscarJugador(this.usuarioActivo.email).usuario;
       }
 
       return nombreUsuario;
